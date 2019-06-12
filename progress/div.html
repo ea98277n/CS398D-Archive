@@ -1,0 +1,27 @@
+<html>
+<body>
+<style>
+.wandering {
+  background-color: red;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+</style>
+<div class="container"></div>
+<div class="wandering" id="wandering"></div>
+<script>
+function createMyBoxes() {
+  var container = document.getElementById("container");
+  for (var n=0; n<1000; n++) {
+    container.innerHTML += "<div class='wandering'></div>";
+  }
+}
+
+var it = document.getElementById("wandering");
+document.onmousemove = function (e) {
+  it.style.top = e.clientY;
+}
+</script>
+</body>
+</html>

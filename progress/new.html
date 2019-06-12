@@ -1,0 +1,53 @@
+<html>
+<body xonLoad="showSomething()">
+
+<!-- Pressing the p key makes the button move-->
+
+<script>
+document.body.onkeydown = showSomething;
+
+function showSomething(paceEvent) {
+  var theButton = document.getElementById('paceButton');
+  console.log(paceEvent, paceEvent.keyCode, theButton);
+  if (paceEvent.keyCode == 80) {
+    theButton.style.left = "100px";
+  }
+  if (paceEvent.keyCode == 79) {
+    theButton.style.left = "10px";
+  }
+}
+
+function launchSomething() {
+  console.log('In launchSomething()');
+  window.open('http://www.baruch.cuny.edu','_blank',"height=500,width=500");
+}
+
+function changeMyText(me) {
+  console.dir(me);
+  me.innerText = "Completely new text";
+}
+
+function addText() {
+  var myNewText = "Hello";
+  var myNewText2 = "Hi, here's an image: <img src='https://upload.wikimedia.org/wikipedia/en/e/ec/The_Sisters_of_Mercy_-_Floodland_cover.jpg'>";
+  document.getElementById('newTextContainer').
+  innerHTML = myNewText2;
+}
+</script>
+
+<button id="paceButton" onClick="showSomething(event)">Click Me</button>
+<button id="launchButton" onClick="launchSomething()">Launch</button>
+<button id="confusedButton" onClick="changeMyText(this)">Change My Text</button>
+<button onClick="addText()">Add Text To The Page</button>
+<div id="newTextContainer"></div>
+
+<style>
+button#paceButton {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+}
+</style>
+
+</body>
+</html>
